@@ -12,8 +12,15 @@ class TestTranscriptReader(unittest.TestCase):
         self.reader = Reader(test_content)
 
     def test_read(self):
-        content = self.reader.read()
-        self.assertTrue(content is not None)
+        captions = self.reader.read()
+        self.assertTrue(captions is not None)
+        self.assertEqual(len(captions), 66)
+        first = captions[0]
+        self.assertEqual(type(first.text), unicode)
+        self.assertEqual(first.text, u"Hi, I&#39;m Emily from Nomensa")
+        self.assertEqual(first.start, 10)
+        self.assertEqual(first.end, 12)
+        self.assertEqual(first.duration, 2)
 
 if __name__ == '__main__':
     unittest.main()

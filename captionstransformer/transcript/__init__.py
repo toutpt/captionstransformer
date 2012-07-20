@@ -3,18 +3,18 @@ from bs4 import BeautifulSoup
 
 class Reader(core.Reader):
     def read(self):
-        content = super(Reader, self).read()
-        soup = BeautifulSoup(content)
+        self.time_unit = "second"
+        super(Reader, self).read()
+        soup = BeautifulSoup(self.rawcontent)
         texts = soup.find_all('text')
-        struct = []
         for text in texts:
-            info = 
-        for line in content:
-            if not line:
-                continue
-            else:
-                import pdb;pdb.set_trace()
-        return content
+            caption = core.Caption()
+            caption.start = int(text['start'])
+            caption.duration = int(text['dur'])
+            caption.text = text.text
+            self.add_caption(caption)
+
+        return self.captions
 
 
 class Writer(core.Writer):

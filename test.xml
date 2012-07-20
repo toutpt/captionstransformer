@@ -1,1 +1,114 @@
-<?xml version="1.0" encoding="utf-8" ?><transcript><text start="10" dur="2">Hi, I&amp;#39;m Emily from Nomensa</text><text start="12" dur="3">and today I&amp;#39;m going to be talking about the order of content on your pages.</text><text start="16" dur="6">Making sure the content on your web pages is presented logically is a really important part of web accessibility.</text><text start="23" dur="2">Page content should be ordered so it makes sense</text><text start="25" dur="2">when read through from top to bottom.</text><text start="28" dur="3">Assistive technologies such as screen readers read out content</text><text start="31" dur="3">in the order it is presented in the code of the page.</text><text start="34" dur="3">Content may lose its meaning if it is presented in the wrong order</text><text start="37" dur="3">and this can be quite confusing if you can&amp;#39;t see the page.</text><text start="41" dur="4">You can check the real order of the content on your page by disabling</text><text start="45" dur="3">the style sheets and reading through the content from top to bottom.</text><text start="48" dur="4">You can do this in Firefox using the Web Developer Toolbar</text><text start="52" dur="5">Select &amp;#39;CSS&amp;#39;, then &amp;#39;Disable Styles&amp;#39;, then &amp;#39;All Styles&amp;#39;.</text><text start="57" dur="5">This shows you the underlying order of the content for that particular page.</text><text start="62" dur="2">Let&amp;#39;s have a look at some examples.</text><text start="64" dur="5">Here we have a page showing some of Nomensa&amp;#39;s Web Accessibility and Web Design services. </text><text start="69" dur="4">To a sighted person this content looks fine.</text><text start="73" dur="4">It makes sense as the lists of services are clearly presented in columns </text><text start="77" dur="2">titled Web Accessibility and Web Design.</text><text start="79" dur="7">It is easy to understand which services are web accessibility and which are web design.</text><text start="86" dur="2">If we listen to the page with a screen reader,</text><text start="88" dur="3">we should be able understand which services belong to each category.</text><text start="91" dur="1">Web Accessibility</text><text start="92" dur="1">Web Design</text><text start="93" dur="1">Accessibility audits</text><text start="94" dur="1">User experience design</text><text start="96" dur="1">Accessible PDFs</text><text start="97" dur="1">Template Development</text><text start="98" dur="1">Accessible Media Player</text><text start="100" dur="1">Defacto CMS</text><text start="102" dur="3">As we have heard the content isn&amp;#39;t ordered correctly in the code of the page.</text><text start="105" dur="3">The category titles were read out first followed</text><text start="108" dur="2">by a jumbled up list of services.</text><text start="110" dur="3">For someone who can&amp;#39;t see the page</text><text start="113" dur="3">it will be difficult to understand which services belong to which category</text><text start="117" dur="4">Let&amp;#39;s look at the underlying code in order to see what&amp;#39;s going on.</text><text start="122" dur="4">As we can see the content is not grouped logically. </text><text start="126" dur="2">This content has been ordered in this way</text><text start="128" dur="2">so it can be positioned visually.</text><text start="130" dur="3">This isn&amp;#39;t good for people using assistive technologies</text><text start="133" dur="3">as the information doesn&amp;#39;t make sense in this order</text><text start="136" dur="3">when read through from top to bottom.</text><text start="139" dur="4">The content hasn&amp;#39;t been marked-up using semantic HTML either.</text><text start="143" dur="4">If your content is not ordered logically and structured correctly</text><text start="147" dur="3">it may put some people off using your website.</text><text start="150" dur="4">When building your pages, you need to think first about the order of the content</text><text start="154" dur="2">and the elements used to structure your content</text><text start="156" dur="3">and then about the visual appearance of the page.</text><text start="160" dur="3">We need to revise the order of content on the page so it makes sense. </text><text start="163" dur="3">We will also mark up the category titles using headings</text><text start="166" dur="3">and the list of services using unordered lists</text><text start="169" dur="3"> to add further meaning to the content.</text><text start="172" dur="2">Heading level two Web Accessibility</text><text start="174" dur="2">List of three items</text><text start="176" dur="1">Bullet Accessibility Audits</text><text start="177" dur="2">Bullet Accessible PDFs</text><text start="179" dur="2">Bullet Accessible Media Player, list end.</text><text start="181" dur="2">Heading level two Web Design</text><text start="183" dur="1">List of three items</text><text start="184" dur="1">Bullet User Experience Design</text><text start="185" dur="1">Bullet Template Development</text><text start="186" dur="3">Bullet Defacto CMS, list end</text><text start="189" dur="3">This content makes a lot more sense in this order!</text><text start="192" dur="2">And just to double check</text><text start="194" dur="4">Let&amp;#39;s look at the underlying code order by disabling our styles</text><text start="200" dur="3">Excellent! This content should now make sense to everybody!</text></transcript>
+<?xml version="1.0" encoding="utf-8" ?>
+<transcript>
+	<text start="10" dur="2">Hi, I&amp;#39;m Emily from Nomensa</text>
+	<text start="12" dur="3">and today I&amp;#39;m going to be talking
+		about the order of content on your pages.</text>
+	<text start="16" dur="6">Making sure the content on your web pages is
+		presented logically is a really important part of web accessibility.
+	</text>
+	<text start="23" dur="2">Page content should be ordered so it makes
+		sense</text>
+	<text start="25" dur="2">when read through from top to bottom.</text>
+	<text start="28" dur="3">Assistive technologies such as screen readers
+		read out content</text>
+	<text start="31" dur="3">in the order it is presented in the code of
+		the page.</text>
+	<text start="34" dur="3">Content may lose its meaning if it is
+		presented in the wrong order</text>
+	<text start="37" dur="3">and this can be quite confusing if you
+		can&amp;#39;t see the page.</text>
+	<text start="41" dur="4">You can check the real order of the content
+		on your page by disabling</text>
+	<text start="45" dur="3">the style sheets and reading through the
+		content from top to bottom.</text>
+	<text start="48" dur="4">You can do this in Firefox using the Web
+		Developer Toolbar</text>
+	<text start="52" dur="5">Select &amp;#39;CSS&amp;#39;, then
+		&amp;#39;Disable Styles&amp;#39;, then &amp;#39;All Styles&amp;#39;.
+	</text>
+	<text start="57" dur="5">This shows you the underlying order of the
+		content for that particular page.</text>
+	<text start="62" dur="2">Let&amp;#39;s have a look at some examples.
+	</text>
+	<text start="64" dur="5">Here we have a page showing some of
+		Nomensa&amp;#39;s Web Accessibility and Web Design services. </text>
+	<text start="69" dur="4">To a sighted person this content looks fine.
+	</text>
+	<text start="73" dur="4">It makes sense as the lists of services are
+		clearly presented in columns </text>
+	<text start="77" dur="2">titled Web Accessibility and Web Design.
+	</text>
+	<text start="79" dur="7">It is easy to understand which services are
+		web accessibility and which are web design.</text>
+	<text start="86" dur="2">If we listen to the page with a screen
+		reader,</text>
+	<text start="88" dur="3">we should be able understand which services
+		belong to each category.</text>
+	<text start="91" dur="1">Web Accessibility</text>
+	<text start="92" dur="1">Web Design</text>
+	<text start="93" dur="1">Accessibility audits</text>
+	<text start="94" dur="1">User experience design</text>
+	<text start="96" dur="1">Accessible PDFs</text>
+	<text start="97" dur="1">Template Development</text>
+	<text start="98" dur="1">Accessible Media Player</text>
+	<text start="100" dur="1">Defacto CMS</text>
+	<text start="102" dur="3">As we have heard the content isn&amp;#39;t
+		ordered correctly in the code of the page.</text>
+	<text start="105" dur="3">The category titles were read out first
+		followed</text>
+	<text start="108" dur="2">by a jumbled up list of services.</text>
+	<text start="110" dur="3">For someone who can&amp;#39;t see the page
+	</text>
+	<text start="113" dur="3">it will be difficult to understand which
+		services belong to which category</text>
+	<text start="117" dur="4">Let&amp;#39;s look at the underlying code in
+		order to see what&amp;#39;s going on.</text>
+	<text start="122" dur="4">As we can see the content is not grouped
+		logically. </text>
+	<text start="126" dur="2">This content has been ordered in this way
+	</text>
+	<text start="128" dur="2">so it can be positioned visually.</text>
+	<text start="130" dur="3">This isn&amp;#39;t good for people using
+		assistive technologies</text>
+	<text start="133" dur="3">as the information doesn&amp;#39;t make
+		sense in this order</text>
+	<text start="136" dur="3">when read through from top to bottom.</text>
+	<text start="139" dur="4">The content hasn&amp;#39;t been marked-up
+		using semantic HTML either.</text>
+	<text start="143" dur="4">If your content is not ordered logically and
+		structured correctly</text>
+	<text start="147" dur="3">it may put some people off using your
+		website.</text>
+	<text start="150" dur="4">When building your pages, you need to think
+		first about the order of the content</text>
+	<text start="154" dur="2">and the elements used to structure your
+		content</text>
+	<text start="156" dur="3">and then about the visual appearance of the
+		page.</text>
+	<text start="160" dur="3">We need to revise the order of content on
+		the page so it makes sense. </text>
+	<text start="163" dur="3">We will also mark up the category titles
+		using headings</text>
+	<text start="166" dur="3">and the list of services using unordered
+		lists</text>
+	<text start="169" dur="3"> to add further meaning to the content.
+	</text>
+	<text start="172" dur="2">Heading level two Web Accessibility</text>
+	<text start="174" dur="2">List of three items</text>
+	<text start="176" dur="1">Bullet Accessibility Audits</text>
+	<text start="177" dur="2">Bullet Accessible PDFs</text>
+	<text start="179" dur="2">Bullet Accessible Media Player, list end.
+	</text>
+	<text start="181" dur="2">Heading level two Web Design</text>
+	<text start="183" dur="1">List of three items</text>
+	<text start="184" dur="1">Bullet User Experience Design</text>
+	<text start="185" dur="1">Bullet Template Development</text>
+	<text start="186" dur="3">Bullet Defacto CMS, list end</text>
+	<text start="189" dur="3">This content makes a lot more sense in this
+		order!</text>
+	<text start="192" dur="2">And just to double check</text>
+	<text start="194" dur="4">Let&amp;#39;s look at the underlying code
+		order by disabling our styles</text>
+	<text start="200" dur="3">Excellent! This content should now make
+		sense to everybody!</text>
+</transcript>
