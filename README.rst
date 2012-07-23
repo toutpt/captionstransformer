@@ -181,4 +181,3 @@ Authors
 .. _cirb: http://cirb.irisnet.be
 .. |makinacom| image:: http://depot.makina-corpus.org/public/logo.gif
 .. _makinacom:  http://www.makina-corpus.com
- 

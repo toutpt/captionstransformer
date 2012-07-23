@@ -5,14 +5,16 @@ version = '1.1.dev0'
 
 setup(name='captionstransformer',
       version=version,
-      description="",
+      description="A set of tools (API + script) to read, write and transform captions from/to many formats",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
         "Programming Language :: Python",
-        ],
+        "Operating System :: OS Independent",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
+      ],
       keywords='caption subtitle',
       author='JeanMichel FRANCOIS aka toutpt',
       author_email='toutpt@gmail.com',
