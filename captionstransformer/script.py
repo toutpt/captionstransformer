@@ -61,7 +61,6 @@ def main():
     reader = REGISTRY[options['input_format']]['reader'](open(options['input']))
     writer = REGISTRY[options['output_format']]['writer'](open(options['output'], 'w'))
 
-    import pdb;pdb.set_trace()
     content = reader.read()
     reader.close()
     writer.write(content)

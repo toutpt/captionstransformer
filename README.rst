@@ -2,9 +2,61 @@ Introduction
 ============
 
 This package is a set of tools to transform captions from one format to another.
+You will find Writer and Reader for each format and a script if you want
+to use it in command line.
 
-Existing Formats
+Supported Format:
+
+* sbv Reader and Writer
+* ttml Reader and Writer
+* transcript Reader and Writer
+
+How to use (API)
 ================
+
+You can read the provided unittest to have complete examples.
+
+    from captionstransformer.sbv import Reader
+    from captionstransformer.ttml import Writer
+    from StringIO import StringIO
+    test_content = StringIO(u"""
+    0:00:03.490,0:00:07.430
+    >> FISHER: All right. So, let's begin.
+    This session is: Going Social
+    
+    0:00:07.430,0:00:11.600
+    with the YouTube APIs. I am
+    Jeff Fisher,
+    
+    0:00:11.600,0:00:14.009
+    and this is Johann Hartmann,
+    we're presenting today.
+    
+    0:00:14.009,0:00:15.889
+    [pause]
+    """)
+    reader = Reader(test_content)
+
+    captions = reader.read()
+    len(captions) == 4
+    first = captions[0]
+    type(first.text) == unicode
+    first.text == u">> FISHER: All right. So, let's begin.\nThis session is: Going Social\n"
+
+    # next get a writer
+    filelike = StringIO()
+    writer = Writer(filelike)
+    writer.set_captions(captions)
+    text = writer.captions_to_text()
+    text.startswith(u"""<tt xml:lang="" xmlns="http://www.w3.org/ns/ttml"><body><div>""")
+    writer.write()
+    writer.close()
+
+About Formats
+=============
+
+This quite hard to find simple documentation about existing caption format.
+Here is a set of existing named caption format:
 
 SubViewer (*.SUB)::
 
@@ -101,13 +153,6 @@ Microsoft SAMI (.sami, .smi)::
              alike that the torch
     </Body>
     </SAMI>
-
-
-Transformers
-============
-
-* Youtube_ -> TTML_
-
 
 
 Credits

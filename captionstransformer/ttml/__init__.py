@@ -1,32 +1,31 @@
-import time
+from datetime import datetime
+from bs4 import BeautifulSoup
 from captionstransformer import core
 
 class Reader(core.Reader):
-    pass
+    def read(self):
+        super(Reader, self).read()
+        soup = BeautifulSoup(self.rawcontent)
+        texts = soup.find_all('p')
+        for text in texts:
+            caption = core.Caption()
+            caption.start = self.get_date(text['begin'])
+            caption.end = self.get_date(text['end'])
+            caption.text = text.text
+            self.add_caption(caption)
 
-DOCUMENT_TPL = u"""<tt xml:lang="" xmlns="http://www.w3.org/ns/ttml"><body><div>%s</div></body></tt>"""
-CAPTION_TPL = u"""<p begin="%(start)s" end="%(end)s">%(text)s</p>"""
+        return self.captions
 
+    def get_date(self, time_str):
+        return datetime.strptime(time_str, '%H:%M:%S')
 
 class Writer(core.Writer):
-    def captions_to_text(self):
-        text = DOCUMENT_TPL
-        buffer = u""
-        for caption in self.captions:
-            time_info = self.format_time(caption)
-            buffer+= CAPTION_TPL % {'start': time_info['start'],
-                                    'end': time_info['end'],
-                                    'text': caption.text}
-        return text % buffer
+    DOCUMENT_TPL = u"""<tt xml:lang="" xmlns="http://www.w3.org/ns/ttml"><body><div>%s</div></body></tt>"""
+    CAPTION_TPL = u"""<p begin="%(start)s" end="%(end)s">%(text)s</p>"""
 
     def format_time(self, caption):
         """Return start and end time for the given format"""
         #should be seconds by default
-        start = caption.start
-        end = caption.end
-        if caption.time_unit == "mili second":
-            start = caption.start / 1000
-            end = caption.end / 1000
 
-        return {'start': time.strftime('%H:%M:%S', time.gmtime(start)),
-                'end': time.strftime('%H:%M:%S', time.gmtime(end))}
+        return {'start': caption.start.strftime('%H:%M:%S'),
+                'end': caption.end.strftime('%H:%M:%S')}
