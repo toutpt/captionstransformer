@@ -8,21 +8,30 @@ class Reader(object):
 
     def read(self):
         self.rawcontent = self.fileobject.read()
+        self.text_to_captions()
         return self.captions
 
     def add_caption(self, caption):
         self.captions.append(caption)
 
     def __repr__(self):
-        return u"%s" % [caption.text for caption in self.captions]
+        return u"%s.%s: %s" % (self.__class__.__module__,
+                               self.__class__.__name__,
+                               "\n".join([caption.text\
+                                          for caption in self.captions
+                                          if hasattr(caption, 'text')]))
 
     def close(self):
         self.fileobject.close()
 
+    def text_to_captions(self):
+        """must be implemented in subclass"""
+        pass
+
 
 class Writer(object):
-    DOCUMENT_TPL = "%s"
-    CAPTION_TPL = "MUST BE IMPLEMENTED: %(start)s , %(end)s, %(text)s"
+    DOCUMENT_TPL = u"%s"
+    CAPTION_TPL = u"%(start)s , %(end)s , %(text)s"
 
     def __init__(self, fobject, captions=None):
         self.fileobject = fobject
@@ -56,8 +65,8 @@ class Writer(object):
         return text % buffer
 
     def format_time(self, caption):
-        return {'start': start.strftime('%H:%M:%S.%f')[:-3],
-                'end': end.strftime('%H:%M:%S.%f')[:-3]}
+        return {'start': caption.start.strftime('%H:%M:%S'),
+                'end': caption.end.strftime('%H:%M:%S')}
 
 
 class Caption(object):
@@ -124,7 +133,9 @@ class Caption(object):
     text = property(get_text, set_text)
 
     def __repr__(self):
-        return self.text
+        return u"%s.%s: %s" % (self.__class__.__module__,
+                               self.__class__.__name__,
+                               self.text)
 
 
 def get_date(hour=0, minute=0, second=0, millisecond=0, microsecond=0):

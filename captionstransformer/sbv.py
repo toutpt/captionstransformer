@@ -5,10 +5,9 @@ from datetime import datetime, timedelta
 
 
 class Reader(core.Reader):
-    def read(self):
-        super(Reader, self).read()
+
+    def text_to_captions(self):
         caption = core.Caption()
-        captions = []
         for line in self.rawcontent.split('\n'):
             stripped_line = line.strip()
             if not stripped_line:
@@ -17,7 +16,7 @@ class Reader(core.Reader):
             if start is not None:
                 #means it is a new caption so start by close previous one
                 if caption.text:
-                    captions.append(caption)
+                    self.add_caption(caption)
 
                 caption = core.Caption()
                 caption.start = start
@@ -25,10 +24,9 @@ class Reader(core.Reader):
             else:
                 caption.text += u'%s\n' % stripped_line
 
-        captions.append(caption)
+        self.add_caption(caption)
 
-        print len(captions)
-        return captions
+        return self.captions
 
     def get_time(self, line):
         parts = line.split(',')

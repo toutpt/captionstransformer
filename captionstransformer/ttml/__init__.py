@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 from captionstransformer import core
 
 class Reader(core.Reader):
-    def read(self):
-        super(Reader, self).read()
+    def text_to_captions(self):
         soup = BeautifulSoup(self.rawcontent)
         texts = soup.find_all('p')
         for text in texts:
