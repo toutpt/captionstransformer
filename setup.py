@@ -13,7 +13,7 @@ setup(name='captionstransformer',
       classifiers=[
         "Programming Language :: Python",
         ],
-      keywords='captions',
+      keywords='caption subtitle',
       author='JeanMichel FRANCOIS aka toutpt',
       author_email='toutpt@gmail.com',
       url='https://github.com/toutpt/captionstranformer',
