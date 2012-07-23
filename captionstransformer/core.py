@@ -58,15 +58,17 @@ class Writer(object):
         text = self.DOCUMENT_TPL
         buffer = u""
         for caption in self.captions:
-            time_info = self.format_time(caption)
-            buffer+= self.CAPTION_TPL % {'start': time_info['start'],
-                                    'end': time_info['end'],
-                                    'text': caption.text}
+            buffer+= self.CAPTION_TPL % self.get_template_info(caption)
         return text % buffer
 
     def format_time(self, caption):
         return {'start': caption.start.strftime('%H:%M:%S'),
                 'end': caption.end.strftime('%H:%M:%S')}
+
+    def get_template_info(self, caption):
+        info = self.format_time(caption)
+        info['text'] = caption.text
+        return info
 
 
 class Caption(object):

@@ -8,6 +8,7 @@ to use it in command line.
 Supported Format:
 
 * sbv Reader and Writer
+* srt Reader and Writer
 * ttml Reader and Writer
 * transcript Reader and Writer
 

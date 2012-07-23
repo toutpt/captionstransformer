@@ -1,13 +1,8 @@
 import os
 import sys
 import getopt
+from captionstransformer.registry import REGISTRY
 
-from captionstransformer import transcript, ttml
-
-REGISTRY = {'transcript':{'reader': transcript.Reader,
-                    'writer': transcript.Writer},
-            'TTML':{'reader': ttml.Reader,
-                    'writer': ttml.Writer} }
 
 def read_options():
     try:
