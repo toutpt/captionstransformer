@@ -15,7 +15,7 @@ Supported Format:
 How to use (API)
 ================
 
-You can read the provided unittest to have complete examples.
+You can read the provided unittest to have complete examples::
 
     from captionstransformer.sbv import Reader
     from captionstransformer.ttml import Writer
