@@ -59,7 +59,7 @@ About Formats
 This quite hard to find simple documentation about existing caption format.
 Here is a set of existing named caption format:
 
-SubViewer (*.SUB)::
+SubViewer (SUB)::
 
     00:04:35.03,00:04:38.82
     Hello guys... please sit down...
@@ -85,7 +85,7 @@ Youtube (SBV)::
     0:00:14.009,0:00:15.889
     [pause]
 
-SubRip (.srt)::
+SubRip (SRT)::
 
     1
     00:00:03,490 --> 00:00:07,430
@@ -121,7 +121,7 @@ Timed Text Markup Language (TTML)::
       </body>
     </tt>
 
-Returned by http://video.google.com/timedtext?lang=en&v=VIDEOID ::
+Transcript ::
 
     <?xml version="1.0" encoding="utf-8" ?>
     <transcript>
@@ -132,7 +132,7 @@ Returned by http://video.google.com/timedtext?lang=en&v=VIDEOID ::
     </transcript>
 
 
-Microsoft SAMI (.sami, .smi)::
+Microsoft SAMI (SAMI, SMI)::
 
     <SAMI>
     <Head>
@@ -181,4 +181,4 @@ Authors
 .. _cirb: http://cirb.irisnet.be
 .. |makinacom| image:: http://depot.makina-corpus.org/public/logo.gif
 .. _makinacom:  http://www.makina-corpus.com
-.. _youtube: 
+ 
