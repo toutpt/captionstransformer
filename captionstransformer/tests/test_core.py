@@ -90,5 +90,28 @@ class TestCaption(unittest.TestCase):
                          u"captionstransformer.core.Caption: Test CONTENT")
 
 
+class TestGetDate(unittest.TestCase):
+    def test_get_date_default(self):
+        date = core.get_date()
+
+        self.assertEqual(date.year, 1900)
+        self.assertEqual(date.month, 1)
+        self.assertEqual(date.day, 1)
+        self.assertEqual(date.hour, 0)
+        self.assertEqual(date.minute, 0)
+        self.assertEqual(date.second, 0)
+
+    def test_get_date_second(self):
+        date = core.get_date(second=3600)
+        self.assertEqual(date.hour, 1)
+        self.assertEqual(date.minute, 0)
+        self.assertEqual(date.second, 0)
+
+    def test_get_date_millisecond(self):
+        date = core.get_date(millisecond=940)
+        self.assertEqual(date.second, 0)
+        self.assertEqual(date.microsecond, 940000)
+
+
 if __name__ == '__main__':
     unittest.main()
