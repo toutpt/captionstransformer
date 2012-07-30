@@ -5,7 +5,7 @@ Changelog
 ----------------
 
 - add extension and mimetype info into REGISTRY
-
+- add id info into REGISTRY
 
 1.0 (2012-07-23)
 ----------------
