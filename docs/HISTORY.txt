@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.1 (2012-08-05)
 ----------------
 
 - add extension and mimetype info into REGISTRY
