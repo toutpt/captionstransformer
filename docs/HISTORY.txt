@@ -5,6 +5,7 @@ Changelog
 ----------------
 
 - add support for time format like start="1.8" in transcript
+- add youtube download captions: captionstransformer.youtube.download_captions
 
 
 1.1 (2012-08-05)
