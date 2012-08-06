@@ -25,6 +25,18 @@ class TestTranscriptReader(unittest.TestCase):
         self.assertEqual(first.end, core.get_date(second=12))
         self.assertEqual(first.duration, timedelta(seconds=2))
 
+    def test_read_milliseconds(self):
+        test_content = StringIO('<?xml version="1.0" encoding="utf-8" ?><transcript><text start="1.8" dur="3.16">Bonjour et bienvenue sur IRISbox.</text><text start="4.96" dur="4.6">Regardons les documents disponibles pour la Region de Bruxelles Capitale.</text><text start="16.32" dur="6.48">Ceux-ci, une fois commandes, vous sont ensuite livres par courrier postal a votre domicile ou bureau.</text><text start="22.8" dur="3">Tout document se commande de la facon suivante.</text><text start="26" dur="7.48">Une fois que vous avez choisi dans la liste le document que vous souhaitez recevoir (parmi la liste disponible), un formulaire apparait sur votre ecran.</text><text start="33.48" dur="7.24">Premierement, remplissez toutes vos coordonnees; les cases munies d un asterisque rouge sont obligatoires.</text><text start="42.8" dur="2.92">A present, remplissez les donnees demandees.</text><text start="48.16" dur="5.28">Sur cette page, vous pouvez si vous le souhaitez, inserer des annexes a votre dossier.</text><text start="55.08" dur="3.36">Verifiez que les donnees que vous avez inserees sont toutes correctes.</text><text start="60.92" dur="3.08">Pour cette action vous devrez vous munir d un moyen de paiement.</text><text start="67.68" dur="3.92">Ensuite, confirmez. Votre role se termine ici.</text><text start="71.6" dur="4.08">Notez bien que dans certains cas, des documents s averent etre gratuits.</text><text start="80.96" dur="2.6">A bientot sur IRISbox.</text></transcript>')
+        self.reader = Reader(test_content)
+        captions = self.reader.read()
+        self.assertTrue(captions is not None)
+        self.assertEqual(len(captions), 13)
+        first = captions[0]
+        self.assertEqual(type(first.text), unicode)
+        #start="1.8"
+        self.assertEqual(first.start.second, 1)
+        self.assertEqual(first.start.microsecond, 800000)
+
 
 class TestTranscriptWriter(unittest.TestCase):
     def setUp(self):
@@ -36,8 +48,8 @@ class TestTranscriptWriter(unittest.TestCase):
         caption.start = core.get_date(second=3, millisecond=490)
         caption.end = core.get_date(second=7, millisecond=430)
         time_info = self.writer.format_time(caption)
-        self.assertEqual(time_info['start'], '00:00:03.490')
-        self.assertEqual(time_info['end'], '00:00:07.430')
+        self.assertEqual(time_info['start'], '3.490')
+        self.assertEqual(time_info['end'], '7.430')
 
 
 if __name__ == '__main__':
