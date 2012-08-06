@@ -23,8 +23,21 @@ def get_video_id(url):
     return vid
 
 
-def download_captions(url, language):
+def get_captions(url, language):
     """Download captions from youtube. Return a list of core.Caption"""
+    youtube = get_video_id(url)
+
+    if youtube:
+        #download caption and save it to extra
+        reader = get_captions_reader(url, language)
+        if reader:
+            captions = reader.read()
+            return captions
+
+    return []
+
+
+def get_reader(url, language):
     youtube = get_video_id(url)
 
     if youtube:
@@ -34,8 +47,9 @@ def download_captions(url, language):
         try:
             flike = urlopen(url)
             reader = REGISTRY['transcript']['reader'](flike)
-            captions = reader.read()
         except IOError:
-            captions = []
+            reader = None
+    else:
+        reader = None
 
-        return captions
+    return reader
