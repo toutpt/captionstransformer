@@ -29,7 +29,7 @@ def get_captions(url, language):
 
     if youtube:
         #download caption and save it to extra
-        reader = get_captions_reader(url, language)
+        reader = get_reader(url, language)
         if reader:
             captions = reader.read()
             return captions

@@ -23,9 +23,9 @@ class TestYoutube(unittest.TestCase):
         vnotfirst = youtube.get_video_id("http://www.youtube.com/watch?s=toto&v=KETCcNzrOb4")
         self.assertEqual(vnotfirst, "KETCcNzrOb4")
 
-    def test_download_captions(self):
+    def test_get_captions(self):
         url = "http://www.youtube.com/watch?v=KETCcNzrOb4"
-        captions = youtube.download_captions(url, 'fr')
+        captions = youtube.get_captions(url, 'fr')
         self.assertEqual(len(captions), 13)
 
 
