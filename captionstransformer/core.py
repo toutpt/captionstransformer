@@ -10,7 +10,11 @@ class Reader(object):
     def read(self):
         self.rawcontent = self.fileobject.read()
         if type(self.rawcontent) == str:
-            self.rawcontent = self.rawcontent.decode(self.encoding)
+            try:
+                self.rawcontent = self.rawcontent.decode(self.encoding)
+            except AttributeError:
+                pass
+
         self.text_to_captions()
         return self.captions
 
@@ -130,7 +134,11 @@ class Caption(object):
 
     def set_text(self, value):
         if type(value) == str:
-            value = str.decode(self.encoding)
+            try:
+                value = str.decode(self.encoding)
+            except AttributeError:
+                pass
+
         elif type(value) != unicode:
             raise ValueError("text must be either encoded string or unicode")
         self._text = value
